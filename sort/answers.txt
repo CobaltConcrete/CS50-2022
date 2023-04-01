@@ -1,0 +1,55 @@
+sort1 uses: Bubble Sort
+
+How do you know?:
+random5000.txt:     0.111s
+random10000.txt:    0.292s
+random50000.txt:    8.251s
+reversed5000.txt:   0.094s
+reversed10000.txt:  0.255s
+reversed50000.txt:  5.654s
+sorted5000.txt:     0.041s
+sorted10000.txt:    0.060s
+sorted50000.txt:    0.518s
+
+sort time increases exponentially from reversed5000.txt to reversed50000.txt: O(n^2)
+sort time increases linearly      from sorted5000.txt   to sorted50000.txt:     Omega(n)
+reversed50000.txt has a much longer sort time than sorted50000.txt
+giving O(n^2) and Omega(n) respectively.
+
+sort2 uses: Merge Sort
+
+How do you know?:
+random5000.txt:     0.025s
+random10000.txt:    0.083s
+random50000.txt:    0.541s
+reversed5000.txt:   0.040s
+reversed10000.txt:  0.076s
+reversed50000.txt:  0.687s
+sorted5000.txt:     0.022s
+sorted10000.txt:    0.049s
+sorted50000.txt:    0.474s
+
+sort 2 takes roughly the same amount of time to sort all txts with same number of n values.
+reversed50000.txt and sorted50000.txt have same sort timings, giving O(n log n) and Omega(n log n) respectively.
+Also, sort2 takes the least amount of time to sort reversed,txt compared to sort1 and sort3.
+multiplier from 5000 to 10000 = 10000log10000 / 5000log5000 = 2.1
+multiplier from 5000 to 10000 = 50000log50000 / 5000log5000 = 12.7
+
+
+sort3 uses: Selection Sort
+
+How do you know?:
+random5000.txt:     0.068s
+random10000.txt:    0.158s
+random50000.txt:    3.188s
+reversed5000.txt:   0.069s
+reversed10000.txt:  0.174s
+reversed50000.txt:  3.741s
+sorted5000.txt:     0.049s
+sorted10000.txt:    0.185s
+sorted50000.txt:    3.397s
+
+sort time increases exponentially from reversed5000.txt to reversed50000.txt: O(n^2)
+sort time increases exponentially from sorted5000.txt   to sorted50000.txt:   O(n^2)
+sort 3 takes the same amount of time to sort all txts with same number of n values.
+reversed50000.txt and sorted50000.txt have same sort timings, giving O(n^2) and Omega(n^2) respectively.
