@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Settings
+{% endblock %}
+
+{% block main %}
+    <form action="/settings" method="post">
+        <button class="btn btn-primary" type="submit" name='settings_button' value="change password">Change password</button>
+        <button class="btn btn-primary" type="submit" name='settings_button' value="deposit funds">Deposit funds</button>
+        <button class="btn btn-primary" type="submit" name='settings_button' value="withdraw funds">Withdraw funds</button>
+    </form>
+{% endblock %}

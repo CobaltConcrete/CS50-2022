@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Successful
+{% endblock %}
+
+{% block main %}
+    <header>{{ action }} Successful</header>
+    <br>
+    {{ message }}
+    <br>
+    <br>
+    <form action="/success" method="post">
+        <button class="btn btn-primary" type="submit">Return Home</button>
+    </form>
+{% endblock %}

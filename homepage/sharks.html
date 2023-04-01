@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <title>Sharks</title>
+        <script>
+            // TODO: Add code to check answers to questions
+
+            // Run script once DOM is loaded
+            document.addEventListener('DOMContentLoaded', function() {
+
+                // When correct ans, change color to green
+                let correct = document.querySelector('.correct');
+                correct.addEventListener('click', function() {
+                    correct.style.backgroundColor = 'green';
+                    document.querySelector('#feedback1').innerHTML = 'Correct!';
+                });
+
+                // When incorrect ans, change color to red
+                let incorrects = document.querySelectorAll('.incorrect');
+                for (let i = 0; i < incorrects.length; i++) {
+                    incorrects[i].addEventListener('click', function(){
+                        incorrects[i].style.backgroundColor = 'red';
+                        document.querySelector('#feedback1').innerHTML = 'Incorrect';
+                    });
+                }
+
+                // Check free response
+                document.querySelector('#check').addEventListener('click', function(){
+                    let input = document.querySelector('input');
+                    if (input.value === 'Nanaue' || input.value === 'nanaue'){
+                        input.style.backgroundColor = 'green';
+                        document.querySelector('#feedback2').innerHTML = 'Correct!';
+                    } else {
+                        input.style.backgroundColor = 'red';
+                        document.querySelector('#feedback2').innerHTML = 'Incorrect';
+                    }
+                });
+            });
+
+
+        </script>
+    </head>
+    <body>
+        <div class="sharkheader">
+            OM NOM NOM
+        </div>
+        <main>
+            <div class="section">
+                <h2>Question 1</h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+
+                    <h3>What is the largest shark present today?</h3>
+
+                    <button class="incorrect">Hammerhead Shark</button>
+                    <button class="incorrect">Great White Shark</button>
+                    <button class="incorrect">Tiger Shark</button>
+                    <button class="correct">Whale shark</button>
+
+                    <p id="feedback1"></p>
+            </div>
+            <div class="section">
+                <h2>Question 1</h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+
+                    <h3>What is the name of the large humanoid shark in DC Universe? (Hint: N_____ )</h3>
+
+                    <input type="text"></input>
+                    <button id="check">Check Answer</button>
+
+                    <p id="feedback2"></p>
+            </div>
+        </main>
+        <footer>
+            Dive <a href="https://cobaltconcrete-probable-xylophone-rxrwrggrv5pcw54-8080.preview.app.github.dev/index.html">Home</a>
+        </footer>
+    </body>
+</html>
+

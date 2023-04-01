@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+    Transaction History
+    <br>
+    <br>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Stock</th>
+                <th>Action</th>
+                <th>No. of Shares Transacted</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th>Date</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            {% for rowHistory in rowsHistory %}
+            <tr>
+                {% if rowHistory.stock == None %}
+                    <td>-</td>
+                {% else %}
+                    <td>{{ rowHistory.stock }}</td>
+                {% endif %}
+
+                    <td>{{ rowHistory.action }}</td>
+
+                {% if rowHistory.shares == None %}
+                    <td>-</td>
+                {% else %}
+                    <td>{{ rowHistory.shares }}</td>
+                {% endif %}
+
+                {% if rowHistory.price == None %}
+                    <td>-</td>
+                {% else %}
+                    <td>${{ rowHistory.price }}</td>
+                {% endif %}
+
+                    <td>${{ rowHistory.total_value }}</td>
+                    <td>{{ rowHistory.date }}</td>
+                    <td>{{ rowHistory.time }}</td>
+            </tr>
+            {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

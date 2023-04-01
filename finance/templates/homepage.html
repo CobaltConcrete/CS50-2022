@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Homepage
+{% endblock %}
+
+{% block main %}
+    Hello, {{ username }}
+
+    <br>
+    <br>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Cash</th>
+                <th>Total Equity</th>
+                <th>Total Assets</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>${{ cash }}</td>
+                <td>${{ total_equity }}</td>
+                <td>${{ total_assets }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <br>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Stocks Owned</th>
+                <th>No. of Shares</th>
+                <th>Current Price</th>
+                <th>Total Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                {% for dictHolding in dictHoldings %}
+                <tr>
+                    <td>{{ dictHolding.stock }}</td>
+                    <td>{{ dictHolding.shares }}</td>
+                    <td>${{ dictHolding.price }}</td>
+                    <td>${{ dictHolding.total_value }}</td>
+                </tr>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

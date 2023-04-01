@@ -1,0 +1,49 @@
+# Create table for purchases of stocks
+CREATE TABLE purchases (purchase_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
+user_id INTEGER NOT NULL,
+username TEXT NOT NULL,
+stock TEXT NOT NULL,
+price NUMERIC NOT NULL,
+shares NUMERIC NOT NULL,
+total NUMERIC NOT NULL,
+date TEXT NOT NULL,
+time TEXT NOT NULL,
+FOREIGN KEY (user_id) REFERENCES users (id),
+FOREIGN KEY (username) REFERENCES users (username));
+
+# Create table for sales of stocks
+CREATE TABLE sales (purchase_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
+user_id INTEGER NOT NULL,
+username TEXT NOT NULL,
+stock TEXT NOT NULL,
+price NUMERIC NOT NULL,
+shares NUMERIC NOT NULL,
+total NUMERIC NOT NULL,
+date TEXT NOT NULL,
+time TEXT NOT NULL,
+FOREIGN KEY (user_id) REFERENCES users (id),
+FOREIGN KEY (username) REFERENCES users (username));
+
+# Create table for transactions of stocks
+CREATE TABLE transactions (purchase_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
+user_id INTEGER NOT NULL,
+username TEXT NOT NULL,
+stock TEXT NOT NULL,
+action TEXT NOT NULL,
+price NUMERIC NOT NULL,
+shares NUMERIC NOT NULL,
+total NUMERIC NOT NULL,
+date TEXT NOT NULL,
+time TEXT NOT NULL,
+FOREIGN KEY (user_id) REFERENCES users (id),
+FOREIGN KEY (username) REFERENCES users (username));
+
+# Create table for stock holdings
+CREATE TABLE holdings (purchase_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE,
+user_id INTEGER NOT NULL,
+username TEXT NOT NULL,
+stock TEXT NOT NULL,
+shares NUMERIC NOT NULL,
+FOREIGN KEY (user_id) REFERENCES users (id),
+FOREIGN KEY (username) REFERENCES users (username));
+
